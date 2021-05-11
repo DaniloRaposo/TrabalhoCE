@@ -10,7 +10,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
     i = 0
-    while i < 10:
+    while i < 100:
         f1 = open("pages/form.html",'r')
         f2 = open("pages/form2.html", 'r')
 
@@ -22,7 +22,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         time2 = time.perf_counter()
 
-        print("Bandwidth = {}".format(sys.getsizeof(data)/(time2 - time1)))
+        print("Bandwidth = {}".format(sys.getsizeof(data)/(2*(time2 - time1))))
 
         i = i + 1
         f1.close()
